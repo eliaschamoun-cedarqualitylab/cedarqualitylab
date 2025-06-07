@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CQL Landing Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="cql-logo.png" width="60px" alt="CQL Logo" />
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger" id="hamburger">&#9776;</button>
+
+    <!-- Navigation Links -->
+    <nav class="nav-links" id="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#"></a>
+      <a href="#">Blog</a>
+    </nav>
+
+    <!-- Action Buttons -->
+    <div class="nav-actions" id="nav-actions">
+      <button class="btn-outline">Book a Call</button>
+      <button class="btn-gradient">Login</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Building a Culture of Software Excellence</h1>
+    <h2><span class="gradient-text">FROM POTENTIAL TO PROFESSIONAL</span></h2>
+    <p>
+      Comprehensive software quality assurance training and professional testing services
+      for individuals and enterprises
+    </p>
+    <div class="hero-buttons">
+      <button class="btn-outline">Book a Demo</button>
+      <button class="btn-outline">Join Our Community</button>
+    </div>
+  </section>
+
+  <!-- Hamburger Menu Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const navActions = document.getElementById('nav-actions');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navActions.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
