@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elias Chamoun  - Senior Software Engineer</title>
+    <title>Elias Chamoun - Senior QA Automation Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="cql-logo.png" type="image/x-icon">
-
-    <!-- Chosen Palette: Deep Teal & Forest Green -->
-    <!-- Application Structure Plan: The SPA is designed as a top-to-bottom narrative journey through the candidate's profile, prioritizing impact and interactivity. It starts with a strong Hero section for identity, followed by quantifiable Impact Metrics to immediately showcase value. An interactive Timeline section allows recruiters to explore work history without being overwhelmed by text, promoting engagement. A dynamic Skills Dashboard with a filterable chart provides a clear, visual breakdown of technical abilities, which is more effective than a static list. A new 'Cedar Quality Lab' section is introduced to highlight entrepreneurial ventures, offering services and a blog. This structure was chosen to guide the recruiter from high-level impact to detailed qualifications and additional ventures in a logical, engaging, and user-friendly flow, moving beyond the linear format of a traditional document. -->
-    <!-- Visualization & Content Choices: 
-        - Key Achievements -> Inform/Compare -> 'Impact Metrics' Cards (HTML/CSS) -> Hover interaction -> Justification: Quickly conveys major career wins with visual appeal.
-        - Work History -> Organize/Inform -> Interactive Vertical Timeline (HTML/CSS/JS) -> Click-to-expand details -> Justification: Makes dense information digestible and encourages user interaction to reveal details on demand.
-        - Technical Skills -> Organize/Compare -> Filterable Bar Chart (Chart.js/Canvas) -> Click buttons to filter data -> Justification: Provides a dynamic and clear visualization of technical breadth and focus areas, allowing recruiters to instantly verify required skills like Playwright and C#.
-        - Cedar Quality Lab Services -> Inform -> Service Cards (HTML/CSS) -> Button click for external link -> Justification: Showcases entrepreneurial work and provides clear calls to action for services.
-        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0A192F; /* Deep Navy/Dark Teal from logo */
-            color: #E0E0E0; /* Light gray for general text */
+            background-color: #0A192F;
+            color: #E0E0E0;
         }
+
         .chart-container {
             position: relative;
             width: 100%;
@@ -34,48 +26,55 @@
             height: 300px;
             max-height: 400px;
         }
+
         @media (min-width: 768px) {
             .chart-container {
                 height: 400px;
             }
         }
+
         .timeline-content {
             transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
             max-height: 0;
             opacity: 0;
             overflow: hidden;
         }
+
         .timeline-item.active .timeline-content {
-            max-height: 1000px; 
+            max-height: 1000px;
             opacity: 1;
         }
+
         .timeline-dot {
             transition: transform 0.3s ease, background-color 0.3s ease;
         }
+
         .timeline-item.active .timeline-dot {
             transform: scale(1.25);
         }
     </style>
 </head>
+
 <body class="text-gray-200">
 
     <header class="bg-[#0A192F]/90 backdrop-blur-lg sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <img src="/cedarqualitylab/cql-logo.png" onerror="this.onerror=null; this.src='cql-logo.png';" alt="Cedar Quality Lab Logo" class="h-10 w-10 rounded-full">
-                <h1 class="text-xl font-bold text-white">Elias Chamoun - CQL</h1>
+                <h1 class="text-xl font-bold text-white">Elias Chamoun</h1>
             </div>
             <div class="hidden md:flex space-x-8">
                 <a href="#overview" class="text-gray-300 hover:text-[#64FFDA] transition-colors">Overview</a>
                 <a href="#timeline" class="text-gray-300 hover:text-[#64FFDA] transition-colors">Timeline</a>
                 <a href="#skills" class="text-gray-300 hover:text-[#64FFDA] transition-colors">Skills</a>
-                <a href="#cedar-quality-lab" class="text-gray-300 hover:text-[#64FFDA] transition-colors">Cedar Quality Lab</a>
-                <a href="#blog" class="text-gray-300 hover:text-[#64FFDA] transition-colors">Blog</a>
                 <a href="#contact" class="text-gray-300 hover:text-[#64FFDA] transition-colors">Contact</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-gray-300 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
                 </button>
             </div>
         </nav>
@@ -83,39 +82,34 @@
             <a href="#overview" class="block py-2 px-4 text-sm hover:bg-[#112240]">Overview</a>
             <a href="#timeline" class="block py-2 px-4 text-sm hover:bg-[#112240]">Timeline</a>
             <a href="#skills" class="block py-2 px-4 text-sm hover:bg-[#112240]">Skills</a>
-            <a href="#cedar-quality-lab" class="block py-2 px-4 text-sm hover:bg-[#112240]">Cedar Quality Lab</a>
-            <a href="#blog" class="block py-2 px-4 text-sm hover:bg-[#112240]">Blog</a>
             <a href="#contact" class="block py-2 px-4 text-sm hover:bg-[#112240]">Contact</a>
         </div>
     </header>
 
     <main class="container mx-auto px-6 py-8 md:py-16">
-        
+
         <section id="overview" class="text-center mb-16 md:mb-24">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Senior Software QA Automation Engineer</h2>
+            <!-- Profile Picture Added Here -->
+            <img src="eliaschamoun-profile.png" alt="Elias Chamoun"
+                class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-[#64FFDA]">
+
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Senior Software Engineer In Quality Software</h2>
             <p class="max-w-3xl mx-auto text-lg text-gray-400 mb-8">
-                Highly accomplished and results-driven Senior Software QA Automation Engineer with over 6 years of progressive experience in leading and implementing robust quality assurance strategies. Proven expertise in designing, building, and scaling comprehensive automation frameworks (UI, API, Mobile, Performance) across diverse platforms, significantly reducing defect rates, accelerating release cycles, and optimizing testing processes. Adept at mentoring cross-functional QA teams, integrating automation into CI/CD pipelines, and driving continuous improvement to ensure enterprise-grade software quality.
+                Highly accomplished and results-driven Senior QA Automation Engineer with over 5 years of progressive
+                experience in leading and implementing robust quality assurance strategies. Proven expertise in
+                designing, building, and scaling comprehensive automation frameworks (UI, API, Mobile, Performance)
+                across diverse platforms, significantly reducing defect rates, accelerating release cycles, and
+                optimizing testing processes. Adept at mentoring cross-functional QA teams, integrating automation into
+                CI/CD pipelines, and driving continuous improvement to ensure enterprise-grade software quality.
             </p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                 <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50">
-                    <h3 class="text-3xl font-bold text-[#64FFDA] mb-2">75%</h3>
-                    <p class="text-gray-300">Reduction in manual QA effort via Cypress framework architecture.</p>
-                </div>
-                <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50">
-                    <h3 class="text-3xl font-bold text-[#64FFDA] mb-2">95%</h3>
-                    <p class="text-gray-300">Reduction in post-deployment bugs through early QA involvement.</p>
-                </div>
-                <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50">
-                    <h3 class="text-3xl font-bold text-[#64FFDA] mb-2">65%</h3>
-                    <p class="text-gray-300">Faster feedback loop achieved by embedding automation in Azure DevOps.</p>
-                </div>
-            </div>
+
+
         </section>
 
         <section id="timeline" class="mb-16 md:mb-24">
             <h2 class="text-3xl font-bold text-white text-center mb-4">Career Timeline</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">An interactive overview of my career progression. Click on any role to see detailed accomplishments and responsibilities.</p>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">An interactive overview of my career
+                progression. Click on any role to see detailed accomplishments and responsibilities.</p>
             <div id="timeline-container" class="relative max-w-3xl mx-auto">
                 <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-[#233554]"></div>
             </div>
@@ -123,121 +117,42 @@
 
         <section id="skills" class="mb-16 md:mb-24">
             <h2 class="text-3xl font-bold text-white text-center mb-4">Technical Skills Dashboard</h2>
-            <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">A visual representation of my technical abilities. Use the filters to highlight specific skill sets.</p>
+            <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">A visual representation of my technical
+                abilities. Use the filters to highlight specific skill sets.</p>
             <div class="flex justify-center flex-wrap gap-2 mb-8">
-                <button data-filter="all" class="skill-filter-btn bg-[#64FFDA] text-[#0A192F] px-4 py-2 rounded-full text-sm font-semibold">All Skills</button>
-                <button data-filter="ui_mobile" class="skill-filter-btn bg-[#112240] text-gray-300 px-4 py-2 rounded-full text-sm font-semibold border border-[#233554] hover:bg-[#233554]">UI & Mobile</button>
-                <button data-filter="api_perf" class="skill-filter-btn bg-[#112240] text-gray-300 px-4 py-2 rounded-full text-sm font-semibold border border-[#233554] hover:bg-[#233554]">API & Performance</button>
-                <button data-filter="languages" class="skill-filter-btn bg-[#112240] text-gray-300 px-4 py-2 rounded-full text-sm font-semibold border border-[#233554] hover:bg-[#233554]">Languages</button>
-                <button data-filter="devops" class="skill-filter-btn bg-[#112240] text-gray-300 px-4 py-2 rounded-full text-sm font-semibold border border-[#233554] hover:bg-[#233554]">CI/CD & DevOps</button>
+                <button data-filter="all"
+                    class="skill-filter-btn bg-[#64FFDA] text-[#0A192F] px-4 py-2 rounded-full text-sm font-semibold">All
+                    Skills</button>
+                <button data-filter="ui_mobile"
+                    class="skill-filter-btn bg-[#112240] text-gray-300 px-4 py-2 rounded-full text-sm font-semibold border border-[#233554] hover:bg-[#233554]">UI
+                    & Mobile</button>
+                <button data-filter="api_perf"
+                    class="skill-filter-btn bg-[#112240] text-gray-300 px-4 py-2 rounded-full text-sm font-semibold border border-[#233554] hover:bg-[#233554]">API
+                    & Performance</button>
+                <button data-filter="languages"
+                    class="skill-filter-btn bg-[#112240] text-gray-300 px-4 py-2 rounded-full text-sm font-semibold border border-[#233554] hover:bg-[#233554]">Languages</button>
+                <button data-filter="devops"
+                    class="skill-filter-btn bg-[#112240] text-gray-300 px-4 py-2 rounded-full text-sm font-semibold border border-[#233554] hover:bg-[#233554]">CI/CD
+                    & DevOps</button>
             </div>
             <div class="chart-container bg-[#112240] p-4 rounded-xl shadow-lg border border-[#233554]/50">
                 <canvas id="skillsChart"></canvas>
             </div>
         </section>
 
-        <section id="cedar-quality-lab" class="mb-16 md:mb-24">
-            <h2 class="text-3xl font-bold text-white text-center mb-4">Cedar Quality Lab</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">My venture dedicated to empowering aspiring QA automation engineers and providing expert consultancy.</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50 text-center">
-                    <div class="mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#64FFDA] mx-auto">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Software Testing Training for Fresh Graduates and Juniors</h3>
-                    <p class="text-gray-300 text-sm mb-4">Comprehensive training programs designed to equip newcomers with essential QA skills for a successful career in software testing.</p>
-                    <ul class="list-disc list-inside text-left text-gray-400 text-sm mb-4">
-                        <li>Fundamentals of Software Testing</li>
-                        <li>Manual Testing Techniques</li>
-                        <li>Test Case Design and Execution</li>
-                        <li>Bug Reporting and Tracking</li>
-                        <li>Introduction to Test Automation</li>
-                        <li>Real-world Project Experience</li>
-                        <li>Career Guidance and Mentorship</li>
-                        <li>Industry Best Practices</li>
-                    </ul>
-                    <a href="https://calendly.com/eliasshamoun96-es/book-a-call" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#64FFDA] hover:bg-[#52D1B6] text-[#0A192F] font-semibold py-2 px-4 rounded-full transition-colors">Book a Call</a>
-                </div>
-
-                <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50 text-center">
-                    <div class="mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#64FFDA] mx-auto">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L13.5 21.75l1.5-6.75h-8.25L3.75 13.5Z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Software Testing Training for QA Professionals</h3>
-                    <p class="text-gray-300 text-sm mb-4">Advanced training for experienced professionals looking to upskill in specialized areas like test automation, performance testing, and security testing.</p>
-                    <ul class="list-disc list-inside text-left text-gray-400 text-sm mb-4">
-                        <li>Advanced Test Automation Frameworks</li>
-                        <li>Performance Testing with JMeter/LoadRunner</li>
-                        <li>Security Testing Methodologies</li>
-                        <li>API Testing and Microservices</li>
-                        <li>CI/CD Integration</li>
-                        <li>Mobile Testing Strategies</li>
-                        <li>Leadership and Team Management</li>
-                        <li>Quality Metrics and Reporting</li>
-                    </ul>
-                    <a href="https://calendly.com/eliasshamoun96-es/book-a-call" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#64FFDA] hover:bg-[#52D1B6] text-[#0A192F] font-semibold py-2 px-4 rounded-full transition-colors">Book a Call</a>
-                </div>
-
-                <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50 text-center">
-                    <div class="mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-[#64FFDA] mx-auto">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12-2.316 2.816-4.074 4.872-5.608M12 18c-1.721 0-3.417-.186-5.074-.513M12 18l-4.758 2.513M12 18l-2.479-1.309m.793-2.653l-.793 2.653m-1.75-1.107l-2.479-1.309M15 16.5l-3.25-1.717" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Software Testing Consulting for Enterprises</h3>
-                    <p class="text-gray-300 text-sm mb-4">Expert consulting services to help businesses establish efficient QA processes, implement automation frameworks, and improve overall software quality.</p>
-                    <ul class="list-disc list-inside text-left text-gray-400 text-sm mb-4">
-                        <li>QA Process Assessment and Optimization</li>
-                        <li>Test Automation Strategy and Implementation</li>
-                        <li>Quality Assurance Framework Design</li>
-                        <li>Team Training and Skill Development</li>
-                        <li>Tool Selection and Integration</li>
-                        <li>Performance and Security Audits</li>
-                        <li>Continuous Improvement Programs</li>
-                        <li>ROI Analysis and Reporting</li>
-                    </ul>
-                    <a href="https://calendly.com/eliasshamoun96-es/book-a-call" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#64FFDA] hover:bg-[#52D1B6] text-[#0A192F] font-semibold py-2 px-4 rounded-full transition-colors">Book a Call</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="blog" class="mb-16 md:mb-24">
-            <h2 class="text-3xl font-bold text-white text-center mb-4">Blog & Resources</h2>
-            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Explore my insights and articles on QA automation, software testing, and industry trends.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50">
-                    <h3 class="text-xl font-bold text-white mb-2">The Future of AI in QA Automation</h3>
-                    <p class="text-gray-300 text-sm mb-4">An in-depth look at how artificial intelligence is transforming the landscape of quality assurance.</p>
-                    <a href="https://www.linkedin.com/feed/update/urn:li:share:7347634568729976832/?actorCompanyId=107288801" target="_blank" rel="noopener noreferrer" class="text-[#64FFDA] hover:underline">Read More &rarr;</a>
-                </div>
-<!--                 <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50">
-                    <h3 class="text-xl font-bold text-white mb-2">Mastering Playwright for E2E Testing</h3>
-                    <p class="text-gray-300 text-sm mb-4">A comprehensive guide to leveraging Playwright for robust end-to-end test automation.</p>
-                    <a href="YOUR_BLOG_LINK_2" target="_blank" rel="noopener noreferrer" class="text-[#64FFDA] hover:underline">Read More &rarr;</a>
-                </div>
-                <div class="bg-[#112240] p-6 rounded-xl shadow-lg border border-[#233554]/50">
-                    <h3 class="text-xl font-bold text-white mb-2">Effective CI/CD Integration Strategies</h3>
-                    <p class="text-gray-300 text-sm mb-4">Best practices for seamlessly integrating test automation into your continuous integration and delivery pipelines.</p>
-                    <a href="YOUR_BLOG_LINK_3" target="_blank" rel="noopener noreferrer" class="text-[#64FFDA] hover:underline">Read More &rarr;</a>
-                </div> -->
-            </div>
-        </section>
-        
     </main>
-    
+
     <footer id="contact" class="bg-[#0A192F] text-gray-400 py-12">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-2xl font-bold text-white mb-4">Get In Touch</h2>
-            <p class="mb-6">I'm actively seeking new opportunities and would be happy to connect.</p>
-            <div class="flex justify-center items-center space-x-6">
-                <a href="mailto:eliasshamoun96.es@gmail.com" class="hover:text-[#64FFDA] transition-colors">eliasshamoun96.es@gmail.com</a>
-                <span class="text-gray-500">|</span>
-                <a href="https://www.linkedin.com/in/elias-chamoun-a97b92177/" target="_blank" rel="noopener noreferrer" class="hover:text-[#64FFDA] transition-colors">LinkedIn Profile</a>
+            <p class="mb-6">I'm actively seeking new opportunities and collaboration and would be happy to connect.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="mailto:eliasshamoun96.es@gmail.com"
+                    class="hover:text-[#64FFDA] transition-colors">eliasshamoun96.es@gmail.com</a>
+                <span class="hidden sm:inline text-gray-500">|</span>
+                <a href="https://www.linkedin.com/in/elias-chamoun-a97b92177/" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-[#64FFDA] transition-colors">LinkedIn Profile</a>
+                
             </div>
         </div>
     </footer>
@@ -250,7 +165,7 @@
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
-            
+
             const mobileNavLinks = mobileMenu.querySelectorAll('a');
             mobileNavLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -258,6 +173,7 @@
                 });
             });
 
+            // Updated timelineData: Removed "Cedar Quality Lab" entry
             const timelineData = [
                 {
                     role: "Founder, Cedar Quality Lab",
@@ -338,7 +254,7 @@
             timelineData.forEach((item, index) => {
                 const alignmentClass = index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8';
                 const dotPosition = index % 2 === 0 ? 'md:right-[-9px]' : 'md:left-[-9px]';
-                
+
                 const timelineItem = document.createElement('div');
                 timelineItem.className = 'timeline-item mb-8 md:mb-2 relative cursor-pointer';
                 timelineItem.innerHTML = `
@@ -367,18 +283,18 @@
 
             const allSkills = {
                 ui_mobile: [
-                    { name: 'Playwright', level: 5 }, { name: 'Cypress.io', level: 5 }, 
-                    { name: 'Selenium', level: 5 }, { name: 'Appium', level: 4 }, 
+                    { name: 'Playwright', level: 5 }, { name: 'Cypress.io', level: 5 },
+                    { name: 'Selenium', level: 5 }, { name: 'Appium', level: 4 },
                     { name: 'WebDriverIO', level: 3 }
                 ],
                 api_perf: [
-                    { name: 'REST Assured', level: 5 }, { name: 'Postman', level: 5 }, 
+                    { name: 'REST Assured', level: 5 }, { name: 'Postman', level: 5 },
                     { name: 'JMeter', level: 4 }
                 ],
                 languages: [
                     { name: 'TypeScript', level: 5 }, { name: 'JavaScript', level: 5 },
-                    { name: 'Java', level: 4 }, { name: 'C#', level: 4 }, 
-                    { name: 'Flutter', level: 3 }
+                    { name: 'Java', level: 3 }, { name: 'C#', level: 3 },
+                    { name: 'Dart', level: 1 }
                 ],
                 devops: [
                     { name: 'Azure DevOps', level: 5 }, { name: 'GitHub Actions', level: 4 },
@@ -394,8 +310,8 @@
                     datasets: [{
                         label: 'Proficiency Level',
                         data: [],
-                        backgroundColor: 'rgba(100, 255, 218, 0.6)', /* Light Teal from logo */
-                        borderColor: 'rgba(52, 209, 182, 1)', /* Darker Teal */
+                        backgroundColor: 'rgba(100, 255, 218, 0.6)',
+                        borderColor: 'rgba(52, 209, 182, 1)',
                         borderWidth: 1
                     }]
                 },
@@ -411,17 +327,17 @@
                             ticks: { display: false }
                         },
                         y: {
-                           grid: { display: false },
-                           ticks: {
-                                color: '#E0E0E0' /* Light color for y-axis labels */
-                           }
+                            grid: { display: false },
+                            ticks: {
+                                color: '#E0E0E0'
+                            }
                         }
                     },
                     plugins: {
                         legend: { display: false },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     let label = context.dataset.label || '';
                                     if (label) {
                                         label += ': ';
@@ -462,7 +378,7 @@
                         data.push(skill.level);
                     });
                 }
-                
+
                 skillsChart.data.labels = labels;
                 skillsChart.data.datasets[0].data = data;
                 skillsChart.update();
@@ -478,5 +394,5 @@
         });
     </script>
 </body>
+
 </html>
-	
